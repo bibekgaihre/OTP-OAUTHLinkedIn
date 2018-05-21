@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Index Page</title>
+</head>
+
+<body>
+    <form action="/registerpartner" method="POST">
+        Partner ID:
+        <input type="text" name="partnerid" required>
+        <br/> Password:
+        <input type="password" name="password" required>
+        <br /> Confirm Password: 
+        <input type="password" name="confirmpassword" required>
+        <br /> Company email ID:
+        <input type="email" name="companyemail" required>
+          <br /> Phone number:
+        <input type="text" name="phonenumber" required>
+        <br /> Name of agency:
+        <input type="text" name="nameofagency" required>
+         <br /> City:
+        <input type="text" name="city" required>
+        <br /> Country:
+        <select name="country" required>
+            <option value="" disabled selected>Choose your option</option>
+            <option value="Action">Action</option>
+            <option value="Nepal">Nepal</option>
+            <option value="India">India</option>
+            <option value="China">China</option>
+            <option value="Taiwan">Taiwan</option>
+            <option value="Japan">Japan</option>
+            <option value="Korea">Korea</option>
+            <option value="Australia">Australia</option>
+            <option value="United States">United States</option>
+            <option value="United Kingdom">United Kingdom</option>
+            <option value="Sweden">Sweden</option>
+            <option value="Pakistan">Pakistan</option>
+        </select>
+        <br/> Address:
+        <input type="text" name="address" required>
+        <br /> ZIP Code:
+        <input type="text" name="zipcode" required>
+        <br />
+        <input type="submit" value="Register">
+
+    </form>
+</body>
+
+</html>
