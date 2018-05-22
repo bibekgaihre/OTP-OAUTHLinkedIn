@@ -24,6 +24,13 @@ exports.insertpartner = function (partnerid, hash, companyemail, phonenumber, na
 }
 
 exports.activateemail=function(token,callback){
+    var query=[];
+    query.where={
+        token:token
+    };
+    partner.findAll(query).then((partner)=>{
+        
+    });
     partner.count({where:{token:token}}).then((partner)=>{
         Sequelize.query("UPDATE partners WHERE token='"+token+"' SET confirmed=1").then(partner=>{
             callback();
