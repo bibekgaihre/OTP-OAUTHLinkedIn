@@ -10,7 +10,8 @@ const indexcontroller=require('../app/controller/indexcontroller');
 router.get('/',function(req,res){
     res.render('index.hbs');
 });
-router.get('/:token',indexcontroller.activateaccount);
+
+router.get('/activateaccount/:token',indexcontroller.activateaccount);
 router.post('/registerpartner',indexcontroller.registerpartner);
 
 

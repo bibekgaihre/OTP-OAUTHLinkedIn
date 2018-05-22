@@ -65,7 +65,7 @@ exports.registerpartner = function (req, res, next) {
             charset: 'alphanumeric',
             capitalization: 'uppercase'
         });
-        var link = "http://localhost:3000/" + token;
+        var link = "http://localhost:3000/activateaccount/" + token;
         //sending data to model
         bcrypt.hash(password, saltRounds, function (err, hash) {
             indexmodel.insertpartner(partnerid, hash, email, phonenumber, nameofagency, city, country, address, zipcode, token, function (err, result) {
