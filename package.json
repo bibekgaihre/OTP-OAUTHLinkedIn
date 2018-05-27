@@ -20,6 +20,7 @@
   "dependencies": {
     "bcrypt": "^1.0.3",
     "body-parser": "^1.18.3",
+    "datamask": "^0.1.1",
     "express": "^4.16.3",
     "express-validator": "^5.2.0",
     "hbs": "^4.0.1",

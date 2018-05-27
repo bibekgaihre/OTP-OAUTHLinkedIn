@@ -14,33 +14,36 @@ const saltRounds = 10;
 
 //functions
 //activate account
-exports.activateaccount=function(req,res,next){
-    var token=req.params.token;
-    indexmodel.activateemail(token,function(err,result){
-        if(err) throw err;
-        else{
+exports.activateaccount = function (req, res, next) {
+    var token = req.params.token;
+    indexmodel.activateemail(token, function (err, result) {
+        if (err) throw err;
+        else {
             res.send('Activation Completed');
         }
     })
 }
 
+exports.registerclient = function (req, res, next) {
+
+}
 
 //registering partner
 exports.registerpartner = function (req, res, next) {
     //validating fields from html page
     req.checkBody('partnerid', 'Partnerid field can not be set empty').notEmpty();
-    req.checkBody('partnerid', 'Partnerid field must be 5 character long ').isLength({min:5, max:5});
+    req.checkBody('partnerid', 'Partnerid field must be 5 character long ').isLength({ min: 5, max: 5 });
     req.checkBody('password', 'Password field can not be set empty').notEmpty();
     req.checkBody('password', 'Password field must be between 8-100 character long ').len(8 - 100);
-    req.checkBody('password','Password field must include one uppercase character, one lowercase character, a number, or special character').matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$/, "i");
+    req.checkBody('password', 'Password field must include one uppercase character, one lowercase character, a number, or special character').matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$/, "i");
     req.checkBody('confirmpassword', 'Password do not match').equals(req.body.password);
     req.checkBody('companyemail', 'Company email field can not be set empty').notEmpty();
     req.checkBody('companyemail', 'The email you entered is invalid.').isEmail();
     req.checkBody('phonenumber', 'Phone Number field can not be set empty').notEmpty();
-    req.checkBody('phonenumber', 'Phone Number field must contain numeric characters only').matches(/^[0-9]*$/, "i");    
+    req.checkBody('phonenumber', 'Phone Number field must contain numeric characters only').matches(/^[0-9]*$/, "i");
     req.checkBody('nameofagency', 'Name of Agency field can not be set empty').notEmpty();
     req.checkBody('city', 'City field can not be set empty').notEmpty();
-    req.checkBody('zipcode', 'Zip Code field must contain numeric characters only').matches(/^[0-9]*$/, "i"); 
+    req.checkBody('zipcode', 'Zip Code field must contain numeric characters only').matches(/^[0-9]*$/, "i");
     // req.checkBody('phonenumber', 'Phone Number field must contain numbers only ').isNumber();
     // req.checkBody('password','Password field must include one uppercase character, one lowercase character, a number, exclamation,at sign or special character').matches(/^(?=.*\d)());
     const errors = req.validationErrors();
@@ -89,7 +92,7 @@ exports.registerpartner = function (req, res, next) {
                         to: email, // list of receivers
                         subject: 'Welcome to Cremill', // Subject line
                         text: 'Thank you for Registering', // plain text body
-                        html: "Please click the link below to confirm your account<br><a href=" + link + ">" + link + "</a> "
+                        html: "Please click the link below to confirm your account<br><a href=" + link + ">" + "<h2>Confirm Email<h2>" + "</a> "
                         // html body
                     };
                     // send mail with defined transport object

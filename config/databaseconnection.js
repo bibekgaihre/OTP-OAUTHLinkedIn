@@ -65,8 +65,50 @@ var partner=connection.define('partner',{
     }
 })
 
+var client=connection.define('client',{
+    cid:{
+        primaryKey:true,
+        allowNull:false,
+        autoIncrement:true,
+        type:Sequelize.INTEGER
+    },
+    username:{
+        type:Sequelize.STRING,
+        allowNull:false,
+        unique:true
+    },
+    password:{
+        type:Sequelize.BLOB,
+        allowNull:false,
+    },
+    email:{
+        type:Sequelize.STRING,
+        allowNull:false,
+        unique:true
+    },
+    phonenumber:{
+        type:Sequelize.INTEGER,
+        unique:true
+    },
+    nameoforganization:{
+        type:Sequelize.STRING,
+        allowNull:true,
+        defaultValue:null
+    },
+    token:{
+        type:Sequelize.STRING,
+        allowNull:true
+    },
+    confirmed:{
+        type:Sequelize.BOOLEAN,
+        defaultValue:false,
+        allowNull:false
+    }
+})
+
+
 connection.sync();
 
 exports=module.exports={
-    partner
+    partner,client
 }
