@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+  <form action="/auth/register" method="post">
+   Username:<br>
+  <input type="text" name="username"><br>
+
+  Email:<br>
+  <input type="email" name="email"><br>
+
+  Phonenumber:<br>
+  <input type="number" name="phonenumber"><br>
+
+  Name of organization:<br>
+  <input type="text" name="organization_name"><br>
+  <br>
+  
+  Job:<br>
+  <input type="text" name="job"><br>
+  <br>
+
+  Location:<br>
+  <input type="text" name="location"><br>
+  <br>
+
+  Password:<br>
+  <input type="text" name="password"><br>
+
+   Confirm Password:<br>
+  <input type="text" name="confirm_password"><br>
+  <br>
+  <input type="submit" value="Register" id="register">
+</form>
+
+
+<!---Ajax register validation-- >
+<script>
+  $( document ).ready(function() {
+	
+	// GET REQUEST
+	$("#register").click(function(event){
+    event.preventDefault();
+		ajaxGet();
+  });
+
+    function ajaxGet(){
+		$.ajax({
+		
+
+		});	
+	}
+
+});
+
+</script>
+
+
+</body>
+</html>
+
