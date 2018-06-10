@@ -30,7 +30,7 @@ var partner=connection.define('partner',{
         unique:true
     },
     phonenumber:{
-        type:Sequelize.INTEGER,
+        type:Sequelize.STRING,
        unique:true
     },
     nameofagency:{
@@ -87,13 +87,22 @@ var client=connection.define('client',{
         unique:true
     },
     phonenumber:{
-        type:Sequelize.INTEGER,
+        type:Sequelize.STRING,
         unique:true
     },
     nameoforganization:{
         type:Sequelize.STRING,
         allowNull:true,
         defaultValue:null
+    },
+    job:{
+        type:Sequelize.STRING,
+        allowNull:true,
+        default:null
+    },
+    location:{
+        type:Sequelize.STRING,
+        allowNull:false,
     },
     token:{
         type:Sequelize.STRING,

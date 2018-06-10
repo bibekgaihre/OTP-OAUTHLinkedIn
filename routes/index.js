@@ -10,8 +10,12 @@ router.get('/',function(req,res){
     res.render('index.hbs');
 });
 
-router.get('/activateaccount/:token',indexcontroller.activateaccount);
+router.get('/activateaccountpartner/:token',indexcontroller.activateaccountpartner);
+router.get('/activateaccountclient/:token',indexcontroller.activateaccountclient);
 router.post('/registerpartner',indexcontroller.registerpartner);
+router.post('/registerclient',indexcontroller.registerclient);
+
+
 
 router.get('/forgetpasswordpartner',function(req,res){
     res.render('forgetpassword.hbs');
@@ -27,5 +31,5 @@ router.post('/resetpasswordpartner',forgetpasswordcontroller.submitnewpasswordpa
 router.post('/resetpasswordclient',forgetpasswordcontroller.submitnewpasswordclient);
 router.get('/passwordresetemail',sendresetemail.sendemailpage);
 router.get('/passwordreseterror',sendresetemail.sendemailpageerror);
-router.post('forgetpasswordclient',forgetpasswordcontroller.sendresetlinkclient);
+router.post('/forgetpasswordclient',forgetpasswordcontroller.sendresetlinkclient);
 module.exports=router;

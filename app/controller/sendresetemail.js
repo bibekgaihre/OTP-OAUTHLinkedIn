@@ -52,5 +52,5 @@ exports.sendemailpage=function (req,res,next){
 }
 
 exports.sendemailpageerror=function(req,res,next){
-    res.send('Could not send email to "'+global.censorEmail+'" ');
+    res.send('Could not send email to "'+global.censorEmail+'". Please try again later ');
 }

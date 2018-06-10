@@ -67,7 +67,7 @@ exports.redirectforgetpasswordpartner = function (req, res, next) {
     }, function (err, result) {
         if (err) throw err;
         else {
-            res.render('resetpassword.hbs',{
+            res.render('resetpasswordpartner.hbs',{
                 displaytoken:token
             });
         }
@@ -84,7 +84,7 @@ exports.redirectforgetpasswordclient=function(req,res,next){
     },function(err,result){
         if(err) throw err;
         else{
-            res.render('resetpassword.hbs',{
+            res.render('resetpasswordclient.hbs',{
                 displaytoken:token
             })
         }
