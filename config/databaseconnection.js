@@ -1,7 +1,7 @@
 const Sequelize=require('sequelize');
 
 const connection=new Sequelize('cremill','root','',{
-    host:'127.0.0.1',
+    host:'localhost',
     dialect:'mysql',
     operatorsAliases:false
 })
@@ -119,5 +119,5 @@ var client=connection.define('client',{
 connection.sync();
 
 exports=module.exports={
-    partner,client
+    partner,client,connection
 }

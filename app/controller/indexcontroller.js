@@ -3,10 +3,80 @@ const randomstring = require('randomstring');
 const nodemailer = require('nodemailer');
 //importing from model
 const indexmodel = require('../model/indexmodel');
+//importing partner and client from model
+const partner = require('../../config/databaseconnection').partner;
+const client=require('../../config/databaseconnection').client
 
 //importing bcrypt and initializing salt rounds
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
+
+
+//check username availability in ajax 
+exports.ajaxcheckclient=function(req,res){
+     if(req.body.username){
+    client.count({where:{
+        username:req.body.username
+    }
+    }).then(count=>{
+       
+     if (count == 1) {
+        res.send({userAvailability:false})
+       }
+       else{
+        res.send({userAvailability:true});
+       }
+    })
+}
+else if(req.body.email){
+    client.count({where:{
+        email:req.body.email
+    }
+    }).then(count=>{
+       
+     if (count == 1) {
+        res.send({useremailAvailability:false})
+       }
+       else{
+        res.send({useremailAvailability:true});
+       }
+    })
+}
+};
+
+//check partnet id availability in ajax 
+exports.ajaxcheckpartner=function(req,res){
+
+    if(req.body.partnerid){
+    partner.count({where:{
+   partnerid:req.body.partnerid
+}
+}).then(count=>{
+   
+ if (count == 1) {
+    res.send({partnerAvailability:false})
+   }
+   else{
+    res.send({partnerAvailability:true});
+   }
+})
+    }
+    else if(req.body.partneremail){
+        partner.count({where:{
+            companyemail:req.body.partneremail
+         }
+         }).then(count=>{
+            
+          if (count == 1) {
+             res.send({partneremailAvailability:false})
+            }
+            else{
+             res.send({partneremailAvailability:true});
+            }
+         })
+
+    }
+};
 
 //functions
 //activate account
