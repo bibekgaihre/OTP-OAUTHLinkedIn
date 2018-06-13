@@ -9,15 +9,16 @@
 </head>
 
 <body>
+      <div id="form-group">
     <form action="/registerpartner" method="POST">
         Partner ID:
-        <input type="text" name="partnerid" required>
+        <input type="text" name="partnerid" id ="partnerid_box" required>
         <br/> Password:
         <input type="password" name="password" required>
         <br /> Confirm Password:
         <input type="password" name="confirmpassword" required>
         <br /> Company email ID:
-        <input type="email" name="companyemail" required>
+        <input type="email" name="companyemail" id="partneremailid_box" required>
         <br /> Phone number:
         <input type="text" name="phonenumber" required>
         <br /> Name of agency:
@@ -48,15 +49,16 @@
     </form>
 
     <h1>Client Registration</h1>
+  
     <form action="/registerclient" method="post">
         Username:
-        <input type="text" name="username" required>
+        <input type="text" name="username"  id="username_box" required>
         <br> Password:
         <input type="password" name="password">
         <br> Confirm Password:
         <input type="password" name="confirmpassword">
         <br> Email:
-        <input type="email" name="email" required>
+        <input type="email" name="email" id="email_box" required>
         <br> Phonenumber:
         <input type="text" name="phonenumber" required>
         <br> Name of organization:
@@ -68,9 +70,12 @@
         <br>
         <input type="submit" value="Register">
     </form>
-
+    </div>
+    <a href="/auth/linkedin-login">Login with linkedin</a>
 </body>
 
-
+<script type="text/javascript" src="../../public/js/jquery-3.3.1.slim.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script type="text/javascript" src="../../public/js/main.js"></script>
 
 </html>

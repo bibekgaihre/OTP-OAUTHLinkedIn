@@ -5,7 +5,7 @@ const connection=new Sequelize('cremill','root','',{
     dialect:'mysql',
     operatorsAliases:false
 })
-
+ 
 
 var partner=connection.define('partner',{
     pid:{
@@ -119,5 +119,5 @@ var client=connection.define('client',{
 connection.sync();
 
 exports=module.exports={
-    partner,client
+    partner,client,connection
 }

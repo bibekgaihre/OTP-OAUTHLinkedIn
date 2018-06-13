@@ -1,6 +1,8 @@
 const express=require('express');
 const router=express.Router();
-
+const bodyParser=require('body-parser');
+// parse application/x-www-form-urlencoded
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
 //importing controllers
 const indexcontroller=require('../app/controller/indexcontroller');
 const forgetpasswordcontroller=require('../app/controller/forgetpasswordcontroller');
@@ -9,6 +11,9 @@ const sendresetemail=require('../app/controller/sendresetemail');
 router.get('/',function(req,res){
     res.render('index.hbs');
 });
+
+router.post('/clientvalidate',urlencodedParser ,indexcontroller.ajaxcheckclient);
+router.post('/partnervalidate',urlencodedParser,indexcontroller.ajaxcheckpartner);
 
 router.get('/activateaccountpartner/:token',indexcontroller.activateaccountpartner);
 router.get('/activateaccountclient/:token',indexcontroller.activateaccountclient);
